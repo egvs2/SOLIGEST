@@ -1,0 +1,589 @@
+\documentclass[12pt,a4paper]{article}
+
+% =================================================
+% PACOTES
+% =================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xurl}
+
+% =================================================
+% PÁGINA
+% =================================================
+\geometry{
+    top=3cm,
+    bottom=2cm,
+    left=3cm,
+    right=2cm
+}
+
+\onehalfspacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black
+}
+
+% =================================================
+% TABELAS
+% =================================================
+\renewcommand{\arraystretch}{1.3}
+
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+% =================================================
+% TÍTULOS
+% =================================================
+\titleformat{\section}
+  {\normalfont\bfseries}
+  {\thesection.}
+  {0.5em}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {\thesubsection}
+  {0.5em}
+  {}
+
+% =================================================
+% DOCUMENTO
+% =================================================
+\begin{document}
+
+% =================================================
+% CAPA
+% =================================================
+
+\begin{titlepage}
+\begin{center}
+
+{\large\textbf{INSTITUTO FEDERAL DE ALAGOAS}}\\
+{\large\textbf{CAMPUS MACEIÓ}}\\
+{\large\textbf{BACHARELADO EM SISTEMAS DE INFORMAÇÃO}}
+
+\vfill
+
+{\Large\textbf{TERMO DE ABERTURA DE PROJETO}}\\[0.3cm]
+{\Large\textbf{(TAP)}}
+
+\vfill
+
+{\large\textbf{SOLIGEST}}\\
+{\large Sistema de Gestão Solidária}
+
+\vfill
+
+\textbf{Equipe}\\[0.2cm]
+Emerson Gomes Vanderlei da Silva
+
+\vfill
+
+MACEIÓ/AL\\
+2026
+
+\end{center}
+\end{titlepage}
+
+% =================================================
+% TERMO DE ABERTURA
+% =================================================
+
+\section*{TERMO DE ABERTURA DO PROJETO (TAP)}
+
+\begin{tabularx}{\textwidth}{P{4.2cm}Y}
+\textbf{Nome do Projeto:} &
+SoliGest -- Sistema de Gestão Solidária \\
+
+\textbf{Gestor do Projeto:} &
+Emerson Gomes \\
+
+\textbf{Prazo do Projeto:} &
+12 semanas (4 Sprints) \\
+
+\textbf{Versão do Documento:} &
+1.0 \\
+\end{tabularx}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{Controle de Versões}
+\end{center}
+
+\begin{tabularx}{\textwidth}{P{1.5cm}P{5cm}P{3cm}Y}
+\toprule
+\textbf{Versão} & \textbf{Descrição} & \textbf{Data} & \textbf{Responsável}\\
+\midrule
+1.0 & Termo de Abertura do Projeto -- SoliGest & A definir & Emerson Gomes\\
+\bottomrule
+\end{tabularx}
+
+% =================================================
+% INTRODUÇÃO
+% =================================================
+
+\section*{INTRODUÇÃO}
+
+O SoliGest -- Sistema de Gestão Solidária é uma proposta de aplicação
+Web voltada à gestão de instituições do terceiro setor, especialmente
+organizações não governamentais (ONGs).
+
+O sistema tem como finalidade centralizar processos relacionados ao
+cadastro e controle de voluntários, à triagem de doações financeiras e
+de suprimentos, ao agendamento de atendimentos sociais e à geração de
+relatórios gerenciais para apoio à tomada de decisão.
+
+Muitas ONGs de pequeno e médio porte ainda dependem de controles
+manuais ou de planilhas descentralizadas. Esse cenário pode acarretar
+perda de informações, dificuldade no acompanhamento de doações e falta
+de transparência com os doadores.
+
+Nesse contexto, o SoliGest busca automatizar esses processos, promovendo
+governança de dados, rastreabilidade das informações e ganho
+operacional.
+
+\textbf{Principais problemas identificados:}
+
+\begin{itemize}
+    \item Dependência de controles manuais;
+    \item Utilização de planilhas descentralizadas;
+    \item Possibilidade de perda de informações;
+    \item Dificuldade no acompanhamento de doações;
+    \item Falta de transparência com doadores;
+    \item Dificuldade de centralização das informações relacionadas aos
+    voluntários e atendimentos sociais.
+\end{itemize}
+
+% =================================================
+% OBJETIVOS
+% =================================================
+
+\section*{OBJETIVOS}
+
+\subsection*{1. Objetivo Geral}
+
+Desenvolver uma aplicação Web capaz de centralizar a gestão de uma
+instituição do terceiro setor, permitindo o cadastro e controle de
+voluntários, a triagem de doações financeiras e de suprimentos, o
+agendamento de atendimentos sociais e a geração de relatórios gerenciais
+para tomada de decisão.
+
+\subsection*{2. Objetivos Específicos}
+
+\begin{itemize}
+    \item Centralizar o cadastro e controle de voluntários;
+    \item Organizar a triagem de doações financeiras;
+    \item Organizar a triagem de doações de suprimentos;
+    \item Permitir o agendamento de atendimentos sociais;
+    \item Disponibilizar relatórios gerenciais;
+    \item Promover governança e rastreabilidade dos dados;
+    \item Reduzir a dependência de controles manuais e planilhas
+    descentralizadas;
+    \item Melhorar a organização e o acompanhamento das informações da
+    instituição.
+\end{itemize}
+
+% =================================================
+% PRODUTO E REQUISITOS
+% =================================================
+
+\section*{PRODUTO E REQUISITOS}
+
+O produto proposto é um sistema Web denominado SoliGest -- Sistema de
+Gestão Solidária, destinado à centralização dos processos de gestão de
+uma instituição do terceiro setor.
+
+\textbf{Funcionalidades previstas:}
+
+\begin{enumerate}
+    \item Cadastro e controle de voluntários;
+    \item Triagem e controle de doações financeiras;
+    \item Triagem e controle de doações de suprimentos;
+    \item Agendamento de atendimentos sociais;
+    \item Geração de relatórios gerenciais;
+    \item Centralização das informações da instituição.
+\end{enumerate}
+
+\textbf{Requisitos gerais identificados:}
+
+\begin{itemize}
+    \item Sistema Web;
+    \item Banco de dados relacional;
+    \item Interface reativa e dinâmica;
+    \item Controle e armazenamento estruturado das informações;
+    \item Geração de relatórios gerenciais.
+\end{itemize}
+
+% =================================================
+% STAKEHOLDERS
+% =================================================
+
+\section*{USUÁRIOS / PARTES INTERESSADAS (STAKEHOLDERS)}
+
+O documento original do projeto não apresenta uma relação nominal de
+stakeholders nem uma classificação formal de interesse e influência.
+Essas informações deverão ser definidas posteriormente.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{P{4cm}Y P{2cm}}
+\toprule
+\textbf{Stakeholder} & \textbf{Interesse} & \textbf{Influência}\\
+\midrule
+Gestores da ONG & Gestão e acompanhamento das atividades & A definir\\
+Voluntários & Cadastro e participação nas atividades da instituição & A definir\\
+Doadores & Transparência e acompanhamento das doações & A definir\\
+Beneficiários/Atendidos & Agendamento e acompanhamento dos atendimentos & A definir\\
+Equipe do projeto & Desenvolvimento e manutenção do sistema & A definir\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% =================================================
+% PRECIFICAÇÃO
+% =================================================
+
+\section*{SIMULAÇÃO DE PRECIFICAÇÃO DO SISTEMA}
+
+O documento original não apresenta uma estimativa de custos de
+desenvolvimento ou infraestrutura. Dessa forma, os valores abaixo
+permanecem como itens a serem definidos caso a disciplina exija a
+simulação de precificação.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{P{4cm}P{3cm}P{3cm}Y}
+\toprule
+\textbf{Função/Item} & \textbf{Quantidade} &
+\textbf{Valor Estimado} & \textbf{Observação}\\
+\midrule
+Desenvolvimento & A definir & A definir & Projeto acadêmico\\
+Infraestrutura & A definir & A definir & Ambiente de execução\\
+Domínio/Hospedagem & A definir & A definir & Caso necessário\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\textbf{Custo Total Estimado:} A definir.
+
+% =================================================
+% RISCOS
+% =================================================
+
+\section*{RISCOS DO PROJETO E ESTRATÉGIAS DE MITIGAÇÃO}
+
+A governança e a gestão de riscos do projeto consideram a integridade
+dos dados, a segurança, o alinhamento arquitetural e a mitigação de
+falhas durante a modelagem e operação.
+
+\begin{longtable}{P{0.8cm}P{3.1cm}P{2cm}P{1.8cm}P{6cm}}
+\toprule
+\textbf{ID} & \textbf{Risco} & \textbf{Probabilidade} &
+\textbf{Impacto} & \textbf{Estratégia de Mitigação}\\
+\midrule
+R1 &
+Redundância ou inconsistência nos cadastros de doadores e voluntários &
+Média & Alto &
+Implementação de regras de validação no Back-End e aplicação de
+restrições de integridade no SGBD.\\
+
+R2 &
+Vazamento ou acesso indevido a dados sensíveis de
+voluntários/atendidos &
+Baixa & Crítico &
+Aplicação das diretrizes da LGPD, controle de acesso e uso de
+criptografia para senhas.\\
+
+R3 &
+Modelagem inadequada do banco de dados gerando retrabalho &
+Média & Alto &
+Validação prévia do Diagrama Entidade-Relacionamento antes do início
+da codificação.\\
+
+R4 &
+Aumento descontrolado de requisitos &
+Média & Médio &
+Definição clara do Produto Mínimo Viável (MVP).\\
+
+R5 &
+Sobrecarga de papéis e potencial atraso nas entregas devido ao
+desenvolvimento solo &
+Média & Alto &
+Delimitação rigorosa do escopo, focado em um Produto Mínimo Viável
+(MVP) funcional.\\
+\bottomrule
+\end{longtable}
+
+% =================================================
+% PADRONIZAÇÃO
+% =================================================
+
+\section*{PADRONIZAÇÃO DE NOMENCLATURAS}
+
+Para garantir organização, legibilidade e facilidade de manutenção do
+sistema, serão adotadas convenções de nomenclatura padronizadas durante
+o desenvolvimento do projeto.
+
+No código do sistema, será adotado um padrão consistente para nomes de
+variáveis, funções, classes e componentes. A convenção específica ainda
+deverá ser definida de acordo com as práticas adotadas durante a
+implementação.
+
+No banco de dados, também deverá ser estabelecido um padrão de
+nomenclatura para tabelas e colunas, garantindo consistência e
+facilidade de manutenção.
+
+O padrão de mensagens de commit no repositório Git também deverá ser
+definido para manter o histórico do projeto organizado.
+
+% =================================================
+% PESQUISA DE SISTEMAS EXISTENTES
+% =================================================
+
+\section*{PESQUISA SOBRE SISTEMAS DE GESTÃO PARA ONGs}
+
+O documento original do projeto não apresenta uma pesquisa comparativa
+com sistemas existentes. Dessa forma, esta seção deverá ser
+complementada caso a disciplina exija uma análise de soluções
+semelhantes.
+
+O objetivo dessa pesquisa deverá ser identificar funcionalidades
+presentes em sistemas de gestão de organizações do terceiro setor que
+possam servir como referência para o desenvolvimento do SoliGest.
+
+% =================================================
+% REQUISITOS FUNCIONAIS
+% =================================================
+
+\section*{REQUISITOS DO SISTEMA}
+
+\subsection*{Requisitos Funcionais}
+
+Os requisitos funcionais descrevem as funcionalidades que o sistema
+deverá oferecer aos seus usuários.
+
+\textbf{RF-01 -- Cadastro de voluntários}
+
+O sistema deverá permitir o cadastro e o controle de voluntários da
+instituição.
+
+\textbf{RF-02 -- Gestão de doações financeiras}
+
+O sistema deverá permitir o registro e o acompanhamento de doações
+financeiras.
+
+\textbf{RF-03 -- Gestão de doações de suprimentos}
+
+O sistema deverá permitir o registro e a triagem de doações de
+suprimentos.
+
+\textbf{RF-04 -- Agendamento de atendimentos sociais}
+
+O sistema deverá permitir o agendamento de atendimentos sociais.
+
+\textbf{RF-05 -- Relatórios gerenciais}
+
+O sistema deverá permitir a geração de relatórios gerenciais para
+auxiliar a tomada de decisão.
+
+\textbf{RF-06 -- Centralização das informações}
+
+O sistema deverá centralizar as informações relacionadas aos
+voluntários, doações e atendimentos sociais.
+
+% =================================================
+% REQUISITOS NÃO FUNCIONAIS
+% =================================================
+
+\subsection*{Requisitos Não Funcionais}
+
+Os requisitos não funcionais descrevem características de qualidade e
+restrições técnicas do sistema.
+
+\textbf{RNF-01 -- Plataforma Web}
+
+O sistema deverá ser disponibilizado por meio de uma aplicação Web.
+
+\textbf{RNF-02 -- Usabilidade}
+
+A aplicação deverá apresentar interfaces reativas, componentizadas e
+dinâmicas.
+
+\textbf{RNF-03 -- Banco de Dados}
+
+O sistema deverá utilizar um SGBD relacional para armazenamento
+estruturado das informações.
+
+\textbf{RNF-04 -- Segurança}
+
+O sistema deverá considerar mecanismos de segurança e proteção dos
+dados, incluindo as diretrizes aplicáveis da LGPD.
+
+\textbf{RNF-05 -- Testabilidade}
+
+O projeto deverá contemplar testes unitários e testes de ponta a ponta.
+
+% =================================================
+% TECNOLOGIAS
+% =================================================
+
+\section*{TECNOLOGIAS PROPOSTAS PARA O PROJETO}
+
+As tecnologias selecionadas para o desenvolvimento do SoliGest são
+apresentadas a seguir.
+
+\subsection*{Back-End}
+
+\begin{itemize}
+    \item \textbf{Node.js} -- utilizado no desenvolvimento do Back-End,
+    devido ao desempenho, ecossistema robusto e facilidade na construção
+    de APIs RESTful.
+\end{itemize}
+
+\subsection*{Front-End}
+
+\begin{itemize}
+    \item \textbf{React.js} -- utilizado para criação de interfaces
+    reativas, componentizadas e dinâmicas.
+\end{itemize}
+
+\subsection*{Banco de Dados}
+
+\begin{itemize}
+    \item \textbf{MySQL} -- SGBD consolidado, de código aberto, com
+    amplo suporte e integração com Node.js.
+\end{itemize}
+
+\subsection*{Prototipação e Design}
+
+\begin{itemize}
+    \item \textbf{Figma} -- utilizado para criação de wireframes de
+    alta fidelidade e design system responsivo.
+\end{itemize}
+
+\subsection*{Gerenciamento de Projeto}
+
+\begin{itemize}
+    \item \textbf{Trello} -- utilizado para organização do fluxo de
+    trabalho utilizando metodologia ágil.
+\end{itemize}
+
+\subsection*{Controle de Versão}
+
+\begin{itemize}
+    \item \textbf{GitHub} -- utilizado para hospedagem do repositório
+    remoto, versionamento Git, controle de commits e rastreabilidade
+    do código.
+\end{itemize}
+
+\subsection*{Ambiente de Desenvolvimento}
+
+\begin{itemize}
+    \item \textbf{VS Code} -- ambiente de desenvolvimento leve,
+    gratuito, extensível e integrado ao Git.
+\end{itemize}
+
+\subsection*{Testes}
+
+\begin{itemize}
+    \item \textbf{Postman} -- validação de endpoints, automação de
+    coleções e testes de integração REST;
+    \item \textbf{Jest} -- testes unitários;
+    \item \textbf{Cypress} -- testes de ponta a ponta (E2E).
+\end{itemize}
+
+% =================================================
+% ARQUITETURA
+% =================================================
+
+\section*{ARQUITETURA DO SISTEMA}
+
+\subsection*{1. Visão Geral da Arquitetura}
+
+O documento original define as principais tecnologias do sistema, mas
+não apresenta uma arquitetura detalhada em camadas. A arquitetura
+definitiva deverá ser especificada durante as etapas de modelagem e
+desenvolvimento.
+
+A solução será desenvolvida como uma aplicação Web, utilizando React.js
+no Front-End, Node.js no Back-End e MySQL como sistema gerenciador de
+banco de dados.
+
+\subsection*{2. Camada de Apresentação (Front-End)}
+
+A camada de apresentação será desenvolvida utilizando React.js,
+responsável pela criação das interfaces reativas, componentizadas e
+dinâmicas do sistema.
+
+\subsection*{3. Camada de Aplicação (Back-End)}
+
+A camada de aplicação utilizará Node.js para implementar a lógica de
+negócio e as APIs RESTful responsáveis pela comunicação entre o
+Front-End e o banco de dados.
+
+\subsection*{4. Camada de Dados}
+
+A camada de dados será implementada utilizando MySQL, responsável pelo
+armazenamento estruturado das informações relacionadas aos voluntários,
+doações e atendimentos.
+
+\subsection*{5. Segurança}
+
+A segurança deverá considerar controle de acesso e proteção dos dados,
+especialmente das informações relacionadas aos voluntários e
+beneficiários/atendidos, observando as diretrizes da LGPD.
+
+% =================================================
+% CRONOGRAMA / MARCOS
+% =================================================
+
+\section*{MARCOS DO PROJETO}
+
+O cronograma foi estruturado em quatro Sprints principais, totalizando
+12 semanas.
+
+\begin{itemize}
+    \item \textbf{Sprint 1 -- Semana 1--3:} Levantamento, requisitos,
+    modelagem e prototipação;
+    \item \textbf{Sprint 2 -- Semana 4--6:} Modelagem do SGBD,
+    configuração do ambiente e desenvolvimento da API base (CRUDs);
+    \item \textbf{Sprint 3 -- Semana 7--9:} Desenvolvimento do
+    Front-End, integração com Back-End e implementação das regras
+    negociais;
+    \item \textbf{Sprint 4 -- Semana 10--12:} Execução de testes (QA),
+    ajustes, documentação final e apresentação.
+\end{itemize}
+
+% =================================================
+% EQUIPE
+% =================================================
+
+\section*{EQUIPE}
+
+\begin{itemize}
+    \item \textbf{Emerson Gomes} -- responsável pelo desenvolvimento
+    do projeto.
+\end{itemize}
+
+Como o projeto é desenvolvido individualmente, as demais funções
+necessárias ao projeto serão desempenhadas pelo próprio integrante,
+conforme a necessidade de cada etapa.
+
+\end{document}
