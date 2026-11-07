@@ -1,0 +1,58 @@
+\documentclass[
+    12pt,               % Tamanho da fonte
+    a4paper,            % Tamanho do papel
+    brazil              % Idioma principal do documento
+]{abntex2}
+
+% =================================================
+% PACOTES ESSENCIAIS
+% =================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{cmap}               % Mapeamento de fontes para busca no PDF
+\usepackage{lmodern}            % Fonte Latin Modern
+\usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção
+\usepackage{geometry}           % Controle de margens
+\usepackage{microtype}          % Melhorias de alinhamento de texto
+
+% Configuração de margens da ABNT
+\geometry{
+    top=3cm,
+    bottom=2cm,
+    left=3cm,
+    right=2cm
+}
+
+% =================================================
+% DADOS DO DOCUMENTO (Metadados para a Capa)
+% =================================================
+\instituicao{Instituto Federal de Alagoas -- IFAL \par Campus Maceió \par Bacharelado em Sistemas de Informação}
+\autor{Emerson Gomes Vanderlei da Silva}
+\titulo{Documento de Teste -- Ambiente LaTeX}
+\local{Maceió}
+\data{2026}
+\preambulo{Documento de teste gerado para validação do ambiente de compilação local com suporte às normas da ABNT.}
+
+% =================================================
+% INÍCIO DO TEXTO
+% =================================================
+\begin{document}
+
+% Gera a capa e a folha de rosto automaticamente
+\imprimircapa
+\imprimirfolhaderosto
+
+% Sumário automático
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\section{Introdução}
+Este é um documento de teste para verificar se o seu compilador LaTeX e a extensão \textit{LaTeX Workshop} no VS Code estão funcionando perfeitamente. 
+
+O recuo do parágrafo acima está configurado de acordo com as normas da ABNT graças ao pacote \texttt{indentfirst}.
+
+\section{Seção de Teste}
+Você pode testar a acentuação e caracteres especiais, como ç, á, é, í, ó, ú, ã e õ. Se o PDF renderizar esses caracteres corretamente e abrir a visualização ao lado sem erros, o seu ambiente está 100\% pronto para produzir seus trabalhos acadêmicos!
+
+\end{document}
