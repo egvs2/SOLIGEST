@@ -1,6 +1,7 @@
 \documentclass[
     12pt,               % Tamanho da fonte
     a4paper,            % Tamanho do papel
+    oneside,
     brazil              % Idioma principal do documento
 ]{abntex2}
 
@@ -9,11 +10,15 @@
 % =================================================
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{cmap}               % Mapeamento de fontes para busca no PDF
-\usepackage{lmodern}            % Fonte Latin Modern
+\usepackage{helvet}             % Carrega a fonte Arial / Helvetica
+\renewcommand{\familydefault}{\sfdefault} % Define a fonte sans-serif (Arial) para todo o documento
+\usepackage[brazil]{babel}
 \usepackage{indentfirst}        % Indenta o primeiro parágrafo de cada seção
 \usepackage{geometry}           % Controle de margens
 \usepackage{microtype}          % Melhorias de alinhamento de texto
+\usepackage{booktabs}           % Tabelas de alta qualidade
+\usepackage{tabularx}           % Tabelas responsivas com largura fixa
+\usepackage{hyperref}           % Enlinks e metadados no PDF
 
 % Configuração de margens da ABNT
 \geometry{
@@ -24,35 +29,131 @@
 }
 
 % =================================================
-% DADOS DO DOCUMENTO (Metadados para a Capa)
+% DADOS DO DOCUMENTO
 % =================================================
-\instituicao{Instituto Federal de Alagoas -- IFAL \par Campus Maceió \par Bacharelado em Sistemas de Informação}
+\instituicao{Instituto Federal de Alagoas -- IFAL \\ Campus Maceió \\ Bacharelado em Sistemas de Informação}
 \autor{Emerson Gomes Vanderlei da Silva}
-\titulo{Documento de Teste -- Ambiente LaTeX}
-\local{Maceió}
+\titulo{Especificação e Levantamento de Requisitos \\ SoliGest -- Sistema de Gestão Solidária}
+\local{Maceió -- AL}
 \data{2026}
-\preambulo{Documento de teste gerado para validação do ambiente de compilação local com suporte às normas da ABNT.}
+\preambulo{Documento de Especificação de Requisitos Funcionais e Não Funcionais referente à Segunda Atividade do Projeto Integrador SoliGest.}
 
 % =================================================
 % INÍCIO DO TEXTO
 % =================================================
 \begin{document}
 
-% Gera a capa e a folha de rosto automaticamente
+% Gera a capa
 \imprimircapa
-\imprimirfolhaderosto
+\clearpage
 
 % Sumário automático
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
-\cleardoublepage
+\clearpage
 
-\section{Introdução}
-Este é um documento de teste para verificar se o seu compilador LaTeX e a extensão \textit{LaTeX Workshop} no VS Code estão funcionando perfeitamente. 
+\chapter{Introdução}
 
-O recuo do parágrafo acima está configurado de acordo com as normas da ABNT graças ao pacote \texttt{indentfirst}.
+O presente documento tem por objetivo detalhar a especificação dos **Requisitos Funcionais (RF)** e **Requisitos Não Funcionais (RNF)** do projeto \textbf{SoliGest -- Sistema de Gestão Solidária}.
 
-\section{Seção de Teste}
-Você pode testar a acentuação e caracteres especiais, como ç, á, é, í, ó, ú, ã e õ. Se o PDF renderizar esses caracteres corretamente e abrir a visualização ao lado sem erros, o seu ambiente está 100\% pronto para produzir seus trabalhos acadêmicos!
+O SoliGest é uma solução Web voltada à gestão de instituições do terceiro setor (ONGs), visando otimizar a administração de voluntários, o controle e triagem de doações (financeiras e de suprimentos), o agendamento de atendimentos sociais e a geração de relatórios gerenciais consolidados para apoio à tomada de decisão.
+
+\chapter{Requisitos Funcionais (RF)}
+
+Os Requisitos Funcionais descrevem o comportamento, os fluxos de trabalho e as funcionalidades específicas que a aplicação Web disponibilizará aos seus usuários e gestores.
+
+\section{Catálogo Geral de Requisitos Funcionais}
+
+\begin{tabularx}{\textwidth}{l X c}
+\toprule
+\textbf{Código} & \textbf{Descrição do Requisito} & \textbf{Prioridade} \\
+\midrule
+\textbf{RF-01} & Cadastro e controle de voluntários da instituição & Alta \\
+\textbf{RF-02} & Gestão e acompanhamento de doações financeiras & Alta \\
+\textbf{RF-03} & Triagem e controle de doações de suprimentos & Alta \\
+\textbf{RF-04} & Agendamento e registro de atendimentos sociais & Média \\
+\textbf{RF-05} & Geração de relatórios gerenciais consolidados & Média \\
+\textbf{RF-06} & Centralização e integração das informações institucionais & Alta \\
+\bottomrule
+\end{tabularx}
+
+\section{Detalhamento dos Requisitos Funcionais}
+
+\subsection{RF-01: Cadastro e Controle de Voluntários}
+\begin{itemize}
+    \item \textbf{Descrição:} O sistema deve permitir o cadastramento, atualização, exclusão lógica e consulta de voluntários vinculados à ONG.
+    \item \textbf{Dados Capturados:} Nome completo, CPF, e-mail, telefone/WhatsApp, disponibilidade de horário, área de atuação e status (ativo/inativo).
+    \item \textbf{Critério de Aceite:} O sistema deve impedir cadastros duplicados baseados no CPF e validar os dados obrigatórios no envio do formulário.
+\end{itemize}
+
+\subsection{RF-02: Gestão de Doações Financeiras}
+\begin{itemize}
+    \item \textbf{Descrição:} O sistema deve registrar e acompanhar as entradas financeiras recebidas pela instituição.
+    \item \textbf{Dados Capturados:} Valor doado, data da doação, forma de pagamento (PIX, transferência, boleto), identificação do doador (opcional para doação anônima) e comprovante.
+    \item \textbf{Critério de Aceite:} Registrar o histórico financeiro com rastreabilidade completa e atualizar os relatórios de arrecadação em tempo real.
+\end{itemize}
+
+\subsection{RF-03: Gestão de Doações de Suprimentos}
+\begin{itemize}
+    \item \textbf{Descrição:} O sistema deve registrar a entrada, triagem e destinação de bens e insumos doados (alimentos, roupas, remédios, utensílios).
+    \item \textbf{Dados Capturados:} Categoria do item, quantidade, estado de conservação/data de validade, data de recebimento e localização no estoque da ONG.
+    \item \textbf{Critério de Aceite:} O sistema deve permitir alterar o status do suprimento (Recebido $\rightarrow$ Em Triagem $\rightarrow$ Disponível $\rightarrow$ Entregue).
+\end{itemize}
+
+\subsection{RF-04: Agendamento de Atendimentos Sociais}
+\begin{itemize}
+    \item \textbf{Descrição:} O sistema deve permitir agendar e organizar atendimentos realizados pela instituição para a comunidade/beneficiários.
+    \item \textbf{Dados Capturados:} Nome do beneficiário, tipo de atendimento social, data, horário, voluntário/profissional responsável e observações da sessão.
+    \item \textbf{Critério de Aceite:} Evitar choque de horários para um mesmo profissional ou sala de atendimento.
+\end{itemize}
+
+\subsection{RF-05: Relatórios Gerenciais}
+\begin{itemize}
+    \item \textbf{Descrição:} O sistema deve emitir relatórios analíticos e sintéticos para apoio à tomada de decisão da diretoria da ONG.
+    \item \textbf{Tipos de Relatório:} Total arrecadado por período, volume de suprimentos em estoque, horas acumuladas por voluntário e quantidade de atendimentos realizados.
+    \item \textbf{Critério de Aceite:} Exportação de relatórios em formatos imprimíveis (PDF) e estruturados.
+\end{itemize}
+
+\subsection{RF-06: Centralização das Informações}
+\begin{itemize}
+    \item \textbf{Descrição:} O sistema deve integrar os módulos de voluntários, doações e atendimentos em um painel único e centralizado.
+    \item \textbf{Critério de Aceite:} Acesso via Dashboard principal exibindo os indicadores fundamentais (KPIs) da instituição.
+\end{itemize}
+
+
+\chapter{Requisitos Não Funcionais (RNF)}
+
+Os Requisitos Não Funcionais especificam as qualidades operacionais, restrições tecnológicas, diretrizes de segurança e usabilidade necessárias para o bom funcionamento do SoliGest.
+
+\section{Catálogo Geral de Requisitos Não Funcionais}
+
+\begin{tabularx}{\textwidth}{l X c}
+\toprule
+\textbf{Código} & \textbf{Categoria / Descrição} & \textbf{Padrão / Tecnologia} \\
+\midrule
+\textbf{RNF-01} & Arquitetura e Plataforma Web & React.js / Node.js \\
+\textbf{RNF-02} & Usabilidade e Interface Reativa & UI Componentizada (Figma) \\
+\textbf{RNF-03} & Gestão e Armazenamento de Dados & SGBD Relacional (MySQL) \\
+\textbf{RNF-04} & Segurança da Informação e Privacidade & Conformidade LGPD \\
+\textbf{RNF-05} & Qualidade e Testabilidade de Código & Testes Unitários e E2E \\
+\bottomrule
+\end{tabularx}
+
+\section{Detalhamento dos Requisitos Não Funcionais}
+
+\subsection{RNF-01: Plataforma Web}
+A aplicação deve ser totalmente acessível através dos principais navegadores web modernos (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari) sem necessidade de instalação prévia de extensões.
+
+\subsection{RNF-02: Usabilidade e Design Reativo}
+A interface gráfica deve ser desenvolvida de maneira componentizada e responsiva, garantindo boa navegabilidade e legibilidade tanto em telas de computadores desktop quanto em dispositivos móveis.
+
+\subsection{RNF-03: Banco de Dados Relacional}
+A persistência de dados deve utilizar um Sistema Gerenciador de Banco de Dados (SGBD) relacional de alto desempenho (MySQL), com esquemas normalizados e restrições de integridade referencial configuradas no servidor.
+
+\subsection{RNF-04: Segurança e Conformidade com a LGPD}
+O sistema deve garantir o controle de acesso baseado em papéis (autenticação e autorização via JWT), criptografar senhas com algoritmos seguros (ex: bcrypt) e atender rigorosamente às exigências da Lei Geral de Proteção de Dados (LGPD) referente ao tratamento de dados pessoais sensíveis.
+
+\subsection{RNF-05: Testabilidade e Qualidade de Software}
+A base de código deve contemplar suítes automatizadas de testes unitários no Back-End (utilizando a biblioteca Jest) e testes de integração de ponta a ponta na interface (utilizando o framework Cypress).
 
 \end{document}
