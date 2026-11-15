@@ -40,16 +40,11 @@ O objetivo central da plataforma é centralizar e otimizar os processos de gest�
 - **Node.js:** Construção de API RESTful escalável e de alto desempenho.
 - **MySQL:** Banco de dados relacional para armazenamento estruturado.
 
-### **Testes & QA**
-- **Jest:** Testes unitários do sistema.
-- **Cypress:** Testes de ponta a ponta (E2E).
-- **Postman:** Validação e testes de coleções de endpoints REST.
-
 ### **Ferramentas de Suporte**
 - **Figma:** Prototipação de wireframes e Design System.
-- **Trello:** Gerenciamento ágil das tarefas do projeto.
 - **Git & GitHub:** Versionamento e governança do código-fonte.
 - **VS Code:** Ambiente principal de desenvolvimento.
+- **LaTeX:** Elaboração e padronização da documentação do projeto.
 
 ---
 
