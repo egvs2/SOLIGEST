@@ -8,5 +8,6 @@
 *.toc
 *.pdf
 *.txt
-Documentação/build/**
-Documetação/*.txt
+Documentacao/build/**
+Documentacao/*.txt
+node_modules/
