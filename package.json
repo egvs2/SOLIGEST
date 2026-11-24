@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/egvs2/SOLIGEST#readme",
   "dependencies": {
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
   }
 }

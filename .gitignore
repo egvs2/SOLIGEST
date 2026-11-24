@@ -8,6 +8,9 @@
 *.toc
 *.pdf
 *.txt
+.env
+.env.local
+!.env.example
 Documentacao/build/**
 Documentacao/*.txt
 node_modules/
